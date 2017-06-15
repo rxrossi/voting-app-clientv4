@@ -1,10 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const UL = styled.ul`
+	list-style-type: none;
+`;
+
 export default ({ polls, authenticated }) => {
 	if (polls.length) {
 		return (
 			<div>
 				<p>Select one to vote or view results</p>
-				<ul>
+				<UL>
 					{polls.map(poll =>
 						<li>
 							{poll.name}
@@ -15,7 +21,7 @@ export default ({ polls, authenticated }) => {
 							}
 						</li>
 					)}
-				</ul>
+				</UL>
 			</div>
 		);
 	}
