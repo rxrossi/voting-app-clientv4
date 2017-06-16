@@ -1,29 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Button } from './Shared';
 
 const primaryBg = "#f5f5fd";
 
 const linkColor = "#33a" ;
 const linkHoverColor = "#009"
 
-const buttonDangerPrimary = "#d33"
-
 const Ul = styled.ul`
 	list-style-type: none;
 `;
 
-const Button = styled.button`
-	background: ${props => props.danger ? buttonDangerPrimary : '#39f'};
-	:hover {
-		background: #f00;
-	}
-	color: #fff;
-	cursor: pointer;
-	padding: 0.2em 1.0em;
-	border-radius: 0.2em;
-	border: none;
-`;
 
 const Li = styled.li`
 	border-radius: 0.5em;
@@ -57,7 +45,7 @@ const StyledLink = styled(Link)`
 `;
 
 
-export default ({ polls, authenticated, onDeleteClick }) => {
+export default ({ polls, ownPolls, onDeleteClick, authenticated }) => {
 	if (polls.length) {
 		return (
 			<div>
@@ -68,7 +56,7 @@ export default ({ polls, authenticated, onDeleteClick }) => {
 							linkTo={"/polls"+poll._id}
 							name={poll.name}
 							onDeleteClick={() => onDeleteClick(poll._id)}
-							authenticated={authenticated}
+							ownPolls={ownPolls}
 						/>
 					)}
 				</Ul>
@@ -88,14 +76,14 @@ export default ({ polls, authenticated, onDeleteClick }) => {
 	)
 }
 
-const ListItem = ({ authenticated, name, linkTo, onDeleteClick }) => (
+const ListItem = ({ ownPolls, name, linkTo, onDeleteClick }) => (
 	<Li>
 		<StyledLink to={linkTo}>
 			{name}
 		</StyledLink>
 		{
-			authenticated ?
-				<Button danger onClick={onDeleteClick}>Delete</Button> :
+			ownPolls ?
+				<Button nature="danger" onClick={onDeleteClick}>Delete</Button> :
 				''
 		}
 	</Li>

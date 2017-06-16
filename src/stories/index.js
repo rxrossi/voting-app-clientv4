@@ -6,6 +6,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import PollsList from '../components/PollsList';
+import { Button } from '../components/Shared';
 
 const polls = [
 	{
@@ -35,18 +36,27 @@ storiesOf('PollsList', module)
 		</MemoryRouter>
 	)
 	.add('authenticated with no content', () =>
-		<PollsList polls={[]} authenticated={true} {...PollsListDefaultProps}/>
+		<PollsList polls={[]} authenticated={true} ownPolls={true} {...PollsListDefaultProps}/>
 
 	)
-	.add('authenticated with a list of polls', () =>
-		<PollsList polls={polls} authenticated={true} {...PollsListDefaultProps}/>
+	.add('viewring own polls', () =>
+		<PollsList polls={polls} ownPolls={true} {...PollsListDefaultProps}/>
 	)
 	.add('not authenticated with no content', () =>
-		<PollsList polls={[]} authenticated={false} {...PollsListDefaultProps}/>
+		<PollsList polls={[]} ownPolls={false} {...PollsListDefaultProps}/>
 	)
 	.add('not authenticated with a list of polls', () =>
-		<PollsList polls={polls} authenticated={false} {...PollsListDefaultProps}/>
+		<PollsList polls={polls} ownPolls={false} {...PollsListDefaultProps}/>
 	)
+
+storiesOf('Button', module)
+	.add('default, danger and primary', () => (
+		<div>
+			<div style={{padding: "5px"}}><Button nature="default">Default</Button></div>
+			<div style={{padding: "5px"}}><Button nature="primary">Primary</Button></div>
+			<div style={{padding: "5px"}}><Button nature="danger">Danger</Button></div>
+		</div>
+	))
 
 // import Button from './Button';
 // import Welcome from './Welcome';
