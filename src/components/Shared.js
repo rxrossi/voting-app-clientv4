@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const btnCol = {
 	default: {
@@ -18,6 +19,18 @@ const btnCol = {
 		fg: "white"
 	},
 };
+
+export const colors = {
+	mainBlue: "#33a",
+	mainBlueHover: "#009",
+};
+
+export const StyledLink = styled(Link)`
+	font-size: ${props => props.small ? '0.7rem' : '1rem'};
+	text-decoration: none;
+	outline: 0;
+	color: ${colors.mainBlue};
+`;
 
 export const Button = styled.button`
 	background: ${props => btnCol[props.nature].bg};

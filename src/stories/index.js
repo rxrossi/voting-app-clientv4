@@ -6,6 +6,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import PollsList from '../components/PollsList';
+import LoginForm from '../components/LoginForm';
 import { Button } from '../components/Shared';
 
 const polls = [
@@ -57,6 +58,14 @@ storiesOf('Button', module)
 			<div style={{padding: "5px"}}><Button nature="danger">Danger</Button></div>
 		</div>
 	))
+
+storiesOf('LoginForm', module)
+	.addDecorator(story =>
+		<MemoryRouter>
+			{story()}
+		</MemoryRouter>
+	)
+	.add('empty fields', () => <LoginForm createAnAccRoute="/createacc"/>)
 
 // import Button from './Button';
 // import Welcome from './Welcome';
