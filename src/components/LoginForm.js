@@ -29,7 +29,7 @@ const Form = styled.form`
 	> ${StyledLink} {
 		${width};
 		${padding};
-		sext-align: right;
+		text-align: right;
 	}
 `;
 
