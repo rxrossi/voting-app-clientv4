@@ -9,6 +9,7 @@ import PollsList from '../components/PollsList';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
 import CreatePoll from '../components/CreatePoll';
+import VotePoll from '../components/VotePoll';
 import { Button } from '../components/Shared';
 
 const polls = [
@@ -18,7 +19,21 @@ const polls = [
 	},
 	{
 		_id: '1235',
-		name: 'Best superhero'
+		name: 'Best superhero',
+		opts: [
+			{
+				name: 'Spongebob',
+				votes: 10,
+			},
+			{
+				name: 'Batman',
+				votes: 1,
+			},
+			{
+				name: 'Superman',
+				votes: 5,
+			},
+		]
 	},
 	{
 		_id: '1236',
@@ -79,6 +94,11 @@ storiesOf('RegisterForm', module)
 
 storiesOf('CreatePoll', module)
 	.add('empty fields', () => <CreatePoll />)
+
+storiesOf('VotePoll', module)
+	.add('default', () => <VotePoll poll={polls[1]}/>)
+	.add('has voted', () => <VotePoll poll={polls[1]} hasVoted={true}/>)
+
 // import Button from './Button';
 // import Welcome from './Welcome';
 

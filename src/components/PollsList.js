@@ -1,35 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledLink, Button, colors } from './Shared';
-
-const blueBg = "#f5f5fd";
-
-const Ul = styled.ul`
-	list-style-type: none;
-`;
-
-
-const Li = styled.li`
-	border-radius: 0.5em;
-	border: 0.1em solid ${blueBg};
-	height: 1.6em;
-	margin: 0.1em;
-	padding: 0.3em 0;
-	clear: both;
-	cursor: pointer;
-	:hover {
-		background: ${blueBg};
-		// margin: 0 0.1em;
-		border: 0;
-	}
-	> button {
-		float: right;
-	}
-	> a {
-		display: inline-block;
-		padding: 0.3em 0.5em;
-	}
-`;
+import { StyledLink, Button, colors, Ul, Li } from './Shared';
 
 export default ({ polls, ownPolls, onDeleteClick, authenticated }) => {
 	if (polls.length) {

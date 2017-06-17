@@ -9,6 +9,7 @@ const padding = "padding: 0.1rem 0;";
 export const colors = {
 	mainBlue: "#33a",
 	mainBlueHover: "#009",
+	blueBg: "#f5f5fd",
 };
 
 const btnCol = {
@@ -27,7 +28,34 @@ const btnCol = {
 		bgHover: "#e44",
 		fg: "white"
 	},
-};
+}
+
+export const Ul = styled.ul`
+	list-style-type: none;
+`;
+
+
+export const Li = styled.li`
+	border-radius: 0.5em;
+	border: 0.1em solid ${colors.blueBg};
+	height: 1.6em;
+	margin: 0.1em;
+	padding: 0.3em 0;
+	clear: both;
+	cursor: pointer;
+	:hover {
+		background: ${colors.blueBg};
+		// margin: 0 0.1em;
+		border: 0;
+	}
+	> button {
+		float: right;
+	}
+	> a {
+		display: inline-block;
+		padding: 0.3em 0.5em;
+	}
+`;;
 
 export const StyledLink = styled(Link)`
 	font-size: ${props => props.small ? '0.7rem' : '1rem'};
