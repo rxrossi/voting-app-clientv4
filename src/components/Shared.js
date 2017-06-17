@@ -2,6 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+const margin = "margin: 5px 0";
+const width = "width: 200px;";
+const padding = "padding: 0.1rem 0;";
+
+export const colors = {
+	mainBlue: "#33a",
+	mainBlueHover: "#009",
+};
+
 const btnCol = {
 	default: {
 		bg: "#069",
@@ -20,17 +29,50 @@ const btnCol = {
 	},
 };
 
-export const colors = {
-	mainBlue: "#33a",
-	mainBlueHover: "#009",
-};
-
 export const StyledLink = styled(Link)`
 	font-size: ${props => props.small ? '0.7rem' : '1rem'};
 	text-decoration: none;
 	outline: 0;
 	color: ${colors.mainBlue};
+	:hover {
+		color: ${colors.mainBlueHover}
+	}
 `;
+
+export const Form = styled.form`
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	> button {
+		${width}
+		${margin};
+		${padding};
+		border-radius: 0;
+	}
+	> input {
+		${padding};
+		${width}
+		${margin};
+	}
+	> ${StyledLink} {
+		${width};
+		${padding};
+		text-align: right;
+	}
+`;
+
+export const Input = styled.input`
+	border: none;
+	border-bottom: 1px solid ${colors.mainBlue};
+	color: ${colors.mainBlue}
+`;
+
+
 
 export const Button = styled.button`
 	background: ${props => btnCol[props.nature].bg};
@@ -38,10 +80,16 @@ export const Button = styled.button`
 	:hover {
 		background: ${props => btnCol[props.nature].bgHover}
 	}
+	:disabled {
+		background: #777;
+		color: #aaa;
+	}
 	cursor: pointer;
-	padding: 0.2em 1.0em;
-	border-radius: 0.2em;
+	padding: ${props => props.small ? '1px 0.5em' : '0.2em 1.0em'};
+	// padding: 0.2em 1.0em;
+	border-radius: ${props => props.small ? '0 0.2em 0.2em 0' : '0.2em'};
 	border: none;
+	border-bottom: ${props => props.small ? '1px solid blue' : 'none'};
 `;
 
 Button.defaultProps = {

@@ -21,9 +21,6 @@ const Li = styled.li`
 		background: ${blueBg};
 		// margin: 0 0.1em;
 		border: 0;
-		> a {
-			color: ${colors.mainBlueHover};
-		}
 	}
 	> button {
 		float: right;
