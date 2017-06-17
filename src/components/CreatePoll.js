@@ -1,4 +1,6 @@
-//TODO: MIssing on Submit, at the moment it is not possible to pass opts and name as prop
+//TODO:
+//-Missing on Submit
+//-Save should be disabled if any input is empty, maybe I should make a loop of opts with a filter?
 import React from 'react';
 import {
 	StyledLink,
