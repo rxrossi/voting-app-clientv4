@@ -39,11 +39,13 @@ export default class CreatePoll extends React.Component {
 	}
 
 	handleChange = (e) => {
-		this.setState({
-			...this.state.opts.slice(0, key),
-			value: e.target.value,
-			...this.state.opts.slice(key+1)
-		})
+		const key = e.target.name;
+		const value = e.target.value;
+
+		let nextState = this.state;
+		nextState.opts[key] = {value};
+
+		this.setState(nextState);
 	}
 
 	render() {
