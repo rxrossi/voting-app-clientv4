@@ -1,14 +1,9 @@
-//TODO:
-//-Missing on Submit
-//-Save should be disabled if any input is empty, maybe I should make a loop of opts with a filter?
 import React from 'react';
 import {
-	StyledLink,
 	Button,
 	Form,
 	Input,
 	InputGroup,
-	colors
 } from '../components/Shared';
 
 
@@ -59,11 +54,10 @@ export default class CreatePoll extends React.Component {
 				<Input type="text" name="name" placeholder="Title of the poll"/>
 				{
 					opts.map((opt, key) =>
-						<InputGroup>
+						<InputGroup key={key}>
 							<Input
 								type="text"
 								name={key}
-								key={key}
 								placeholder={"Option "+ (key+1)}
 								value={opt.value}
 								onChange={this.handleChange}

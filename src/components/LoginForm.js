@@ -4,7 +4,6 @@ import {
 	Button,
 	Form,
 	Input,
-	colors
 } from '../components/Shared';
 
 

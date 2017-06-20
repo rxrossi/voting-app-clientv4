@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import { StyledLink, Button, colors, Ul, Li } from './Shared';
+import { StyledLink, Button, Ul, Li } from './Shared';
 
 export default ({ polls, ownPolls, onDeleteClick, authenticated }) => {
 	if (polls.length) {
@@ -12,6 +11,7 @@ export default ({ polls, ownPolls, onDeleteClick, authenticated }) => {
 						<ListItem
 							linkTo={"/polls"+poll._id}
 							name={poll.name}
+							key={poll.name}
 							onDeleteClick={() => onDeleteClick(poll._id)}
 							ownPolls={ownPolls}
 						/>
