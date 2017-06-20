@@ -7,8 +7,10 @@ import {
 	Button,
 	Form,
 	Input,
+	InputGroup,
 	colors
 } from '../components/Shared';
+
 
 export default class CreatePoll extends React.Component {
 	state = {
@@ -57,7 +59,7 @@ export default class CreatePoll extends React.Component {
 				<Input type="text" name="name" placeholder="Title of the poll"/>
 				{
 					opts.map((opt, key) =>
-						<div>
+						<InputGroup>
 							<Input
 								type="text"
 								name={key}
@@ -75,7 +77,7 @@ export default class CreatePoll extends React.Component {
 							>
 								x
 							</Button>
-						</div>
+						</InputGroup>
 					)
 				}
 				<Button type="button" onClick={this.addOpt}>Add one more option (+)</Button>

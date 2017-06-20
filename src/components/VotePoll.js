@@ -1,5 +1,6 @@
 import React from 'react';
-import { Ul, Li, Button, Input, Form } from './Shared';
+import styled from 'styled-components';
+import { Ul, Li, Button, Input, InputGroup, Form } from './Shared';
 
 export default class VotePoll extends React.Component {
 	state = {
@@ -29,7 +30,7 @@ export default class VotePoll extends React.Component {
 			);
 		}
 		return (
-			<div>
+			<div >
 				<p>Select one to vote or create a new option</p>
 				<Ul>
 					{poll.opts.map(opt =>
@@ -38,13 +39,15 @@ export default class VotePoll extends React.Component {
 						</Li>
 					)}
 				</Ul>
-				<Form onSubmit={this.onSubmit}>
-					<Input
-						placeholder="The name of a new option"
-						onChange={this.changeInput}
-					/>
-					<Button small type="button" nature="primary">+</Button>
-				</Form>
+				<form onSubmit={this.onSubmit} >
+					<InputGroup>
+						<Input
+							placeholder="The name of a new option"
+							onChange={this.changeInput}
+						/>
+						<Button small type="button" >+</Button>
+					</InputGroup>
+				</form>
 			</div>
 		);
 

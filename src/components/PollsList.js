@@ -40,7 +40,7 @@ const ListItem = ({ ownPolls, name, linkTo, onDeleteClick }) => (
 		</StyledLink>
 		{
 			ownPolls ?
-				<Button nature="danger" onClick={onDeleteClick}>Delete</Button> :
+				<Button nature="danger" onClick={onDeleteClick} >X</Button> :
 				''
 		}
 	</Li>
